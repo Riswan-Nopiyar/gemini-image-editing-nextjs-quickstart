@@ -5,6 +5,7 @@ import { useDropzone } from "react-dropzone";
 import { Button } from "./ui/button";
 import { Upload as UploadIcon, Image as ImageIcon, X } from "lucide-react";
 import Image from "next/image";
+import { FileRejection } from 'react-dropzone';
 
 interface ImageUploadProps {
   onImageSelect: (imageData: string) => void;
@@ -38,7 +39,7 @@ export function ImageUpload({
   }, [currentImage]);
 
   const onDrop = useCallback(
-    (acceptedFiles: File[], fileRejections: any) => {
+    (acceptedFiles: File[], fileRejections: FileRejection[]) => {
       if (fileRejections?.length > 0) {
         onError?.(fileRejections[0].errors[0].message);
         return;
