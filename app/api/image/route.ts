@@ -208,7 +208,7 @@ export async function POST(req: NextRequest) {
         }
       }
     } else {
-      console.error("No response from Gemini API", { result });
+      console.error("No response from G 2.0 API, click create new image", { result });
       return NextResponse.json(
         { success: false, error: "No response from Gemini API" },
         { status: 500 }
@@ -216,7 +216,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (!imageData) {
-      console.error("No image data in Gemini response", { response });
+      console.error("No image data in G 2.0 API, click create new image ", { response });
       return NextResponse.json(
         { success: false, error: "No image data in Gemini response" },
         { status: 500 }
