@@ -4,7 +4,7 @@ import { useCallback, useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Button } from "./ui/button";
 import { Upload as UploadIcon, Image as ImageIcon, X } from "lucide-react";
-import Image from 'next/image';
+import Image from "next/image";
 
 interface ImageUploadProps {
   onImageSelect: (imageData: string) => void;
@@ -22,7 +22,11 @@ export function formatFileSize(bytes: number): string {
   );
 }
 
-export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploadProps) {
+export function ImageUpload({
+  onImageSelect,
+  currentImage,
+  onError,
+}: ImageUploadProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,10 +38,9 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
   }, [currentImage]);
 
   const onDrop = useCallback(
-    (acceptedFiles: File[], fileRejections) => {
+    (acceptedFiles: File[], fileRejections: any) => {
       if (fileRejections?.length > 0) {
-        const error = fileRejections[0].errors[0];
-        onError?.(error.message);
+        onError?.(fileRejections[0].errors[0].message);
         return;
       }
 
@@ -56,23 +59,23 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
         }
         setIsLoading(false);
       };
-      reader.onerror = (error) => {
+      reader.onerror = () => {
         onError?.("Error reading file. Please try again.");
         setIsLoading(false);
       };
       reader.readAsDataURL(file);
     },
-    [onImageSelect]
+    [onImageSelect, onError]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
       "image/png": [".png"],
-      "image/jpeg": [".jpg", ".jpeg"]
+      "image/jpeg": [".jpg", ".jpeg"],
     },
     maxSize: 10 * 1024 * 1024, // 10MB
-    multiple: false
+    multiple: false,
   });
 
   const handleRemove = () => {
@@ -95,7 +98,10 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
         >
           <input {...getInputProps()} />
           <div className="flex flex-row items-center" role="presentation">
-            <UploadIcon className="w-8 h-8 text-primary mr-3 flex-shrink-0" aria-hidden="true" />
+            <UploadIcon
+              className="w-8 h-8 text-primary mr-3 flex-shrink-0"
+              aria-hidden="true"
+            />
             <div className="">
               <p className="text-sm font-medium text-foreground">
                 Drop your image here or click to browse
@@ -109,7 +115,10 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
       ) : (
         <div className="flex flex-col items-center p-4 rounded-lg bg-secondary">
           <div className="flex w-full items-center mb-4">
-            <ImageIcon className="w-8 h-8 text-primary mr-3 flex-shrink-0" aria-hidden="true" />
+            <ImageIcon
+              className="w-8 h-8 text-primary mr-3 flex-shrink-0"
+              aria-hidden="true"
+            />
             <div className="flex-grow min-w-0">
               <p className="text-sm font-medium truncate text-foreground">
                 {selectedFile?.name || "Current Image"}
@@ -132,9 +141,14 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
           </div>
           <div className="w-full overflow-hidden rounded-md">
             <Image
-              src={currentImage}
+              src={currentImage} 
               alt="Selected"
-              className="w-full h-auto object-contain"
+              width={800}
+              height={600}
+              className="w-full h-auto"
+              style={{
+                objectFit: "contain", 
+              }}
             />
           </div>
         </div>
