@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Download, RotateCcw, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { HistoryItem, HistoryPart } from "@/lib/types";
+import Image from 'next/image';
 
 interface ImageResultDisplayProps {
   imageUrl: string;
@@ -57,7 +58,7 @@ export function ImageResultDisplay({
       </div>
 
       <div className="rounded-lg overflow-hidden bg-muted p-2">
-        <img
+        <Image
           src={imageUrl}
           alt={description || "Generated image"}
           className="max-w-[640px] h-auto mx-auto"
@@ -90,7 +91,7 @@ export function ImageResultDisplay({
                       {part.text && <p className="text-sm">{part.text}</p>}
                       {part.image && (
                         <div className="mt-2 overflow-hidden rounded-md">
-                          <img
+                          <Image
                             src={part.image}
                             alt={`Image shared by ${item.role}`}
                             className="max-w-[16rem] h-auto object-contain"
