@@ -173,7 +173,7 @@ export async function POST(req: NextRequest) {
       console.error("Error in chat.sendMessage:", error);
       const errorMessage = error instanceof Error ? error.message : "Unknown error in AI processing";
       return NextResponse.json(
-        { success: false, error: "Gemini API error", details: errorMessage },
+        { success: false, error: "G-2.0 API error", details: errorMessage },
         { status: 500 }
       );
     }
@@ -210,7 +210,7 @@ export async function POST(req: NextRequest) {
     } else {
       console.error("No response from G 2.0 API, click create new image", { response });
       return NextResponse.json(
-        { success: false, error: "No response from Gemini API" },
+        { success: false, error: "No response from G-2.0 API" },
         { status: 500 }
       );
     }
@@ -218,7 +218,8 @@ export async function POST(req: NextRequest) {
     if (!imageData) {
       console.error("No image data in G 2.0 API, click create new image ", { response });
       return NextResponse.json(
-        { success: false, error: "No image data in Gemini response" },
+        { success: false, error: "Maaf gambar tak terdeteksi di browser, klik Create New Image" },
+        // { success: false, error: "No image data in G-2.0 response, or Click Create New Image" },
         { status: 500 }
       );
     }
