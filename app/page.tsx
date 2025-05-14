@@ -102,7 +102,7 @@ export default function Home() {
   const displayImage = generatedImage;
 
   return (
-    <main className="min-h-[620px] flex items-center justify-center bg-background py-8">
+    <main className="min-h-[620px] flex items-center justify-center bg-background mt-10 py-8">
       <Card className="w-full max-w-4xl border-0 shadow-none">
         <CardHeader className="flex flex-col items-center justify-center space-y-2">
           <CardTitle className="flex items-center gap-2 text-foreground">
