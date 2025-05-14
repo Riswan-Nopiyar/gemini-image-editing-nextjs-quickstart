@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Wand2 } from "lucide-react";
-import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 interface ImagePromptInputProps {
   onSubmit: (prompt: string) => void;
@@ -31,18 +31,18 @@ export function ImagePromptInput({
       <div className="space-y-2">
         <p className="text-sm font-medium text-foreground">
           {isEditing
-            ? "Describe how you want to edit the image"
-            : "Describe the image you want to generate"}
+            ? "Deskripsikan gambar yang ingin anda edit"
+            : "Deskripsikan gambar yang ingin anda buat"}
         </p>
       </div>
 
-      <Input
+      <Textarea
         id="prompt"
-        className="border-secondary"
+        className="border-secondary h-52"
         placeholder={
           isEditing
-            ? "Example: Make the background blue and add a rainbow..."
-            : "Example: A 3D rendered image of a pig with wings and a top hat flying over a futuristic city..."
+            ? "Contoh: Edit gambar ini menggantinya dengan background merah..."
+            : "Contoh: Buat sebuah gambar tentang pemandangan alam dengan gunung dan sungai..."
         }
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
@@ -51,7 +51,7 @@ export function ImagePromptInput({
       <Button
         type="submit"
         disabled={!prompt.trim() || isLoading}
-        className="w-full bg-primary hover:bg-primary/90"
+        className="w-full bg-primary hover:bg-blue-400"
       >
         <Wand2 className="w-4 h-4 mr-2" />
         {isEditing ? "Edit Image" : "Generate Image"}

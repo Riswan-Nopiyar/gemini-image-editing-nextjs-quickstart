@@ -57,18 +57,18 @@ export function ImageResultDisplay({
         </div>
       </div>
 
-      <div className="rounded-lg overflow-hidden bg-muted p-2">
+      <div className="rounded-lg overflow-hidden bg-muted p-2 dark:bg-gray-900">
         <Image
          width={800}
          height={600}
           src={imageUrl}
           alt={description || "Generated image"}
-          className="max-w-[640px] h-auto mx-auto"
+          className="max-w-[640px] w-full h-auto mx-auto"
         />
       </div>
 
       {description && (
-        <div className="p-4 rounded-lg bg-muted">
+        <div className="p-4 rounded-lg bg-muted dark:bg-gray-900">
           <h3 className="text-sm font-medium mb-2">Description</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>

@@ -90,7 +90,7 @@ export function ImageUpload({
         <div
           {...getRootProps()}
           className={`min-h-[150px] p-4 rounded-lg
-          ${isDragActive ? "bg-secondary/50" : "bg-secondary"}
+          ${isDragActive ? "bg-secondary/50 dark:hover:bg-gray-800" : "bg-secondary dark:bg-gray-900"}
           ${isLoading ? "opacity-50 cursor-wait" : ""}
           transition-colors duration-200 ease-in-out hover:bg-secondary/50
           border-2 border-dashed border-secondary
@@ -105,7 +105,7 @@ export function ImageUpload({
             />
             <div className="">
               <p className="text-sm font-medium text-foreground">
-                Drop your image here or click to browse
+                Taruh atau upload gambar <span className="font-bold">(OPSIONAL)</span>
               </p>
               <p className="text-xs text-muted-foreground">
                 Maximum file size: 10MB
@@ -137,7 +137,7 @@ export function ImageUpload({
               className="flex-shrink-0 ml-2"
             >
               <X className="w-4 h-4" />
-              <span className="sr-only">Remove image</span>
+              <span className="sr-only">Hapus Gambar</span>
             </Button>
           </div>
           <div className="w-full overflow-hidden rounded-md">

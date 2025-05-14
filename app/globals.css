@@ -20,7 +20,7 @@ body {
       --card-foreground: 240, 3%, 12%;
       --popover: 0 0% 100%;
       --popover-foreground: 240, 3%, 12%;
-      --primary: 214, 82%, 51%;
+      --primary: 247, 100%, 59%;
       --primary-foreground: 0 0% 98%;
       --secondary: 240 4.8% 95.9%;
       --secondary-foreground: 214, 82%, 51%;
@@ -48,7 +48,7 @@ body {
       --card-foreground: 0 0% 98%;
       --popover: 220 7% 8%;
       --popover-foreground: 0 0% 98%;
-      --primary: 217 91% 60%;
+      --primary: 132, 92%, 63%;
       --primary-foreground: 0 0% 98%;
       --secondary: 240 3% 12%;
       --secondary-foreground: 0 0% 98%;
