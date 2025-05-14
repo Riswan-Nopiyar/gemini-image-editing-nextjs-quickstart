@@ -90,7 +90,7 @@ export function ImageUpload({
         <div
           {...getRootProps()}
           className={`min-h-[150px] p-4 rounded-lg
-          ${isDragActive ? "bg-secondary/50 dark:hover:bg-gray-800" : "bg-secondary dark:bg-gray-900"}
+          ${isDragActive ? "bg-secondary/50 dark:hover:bg-gray-800" : "bg-secondary"}
           ${isLoading ? "opacity-50 cursor-wait" : ""}
           transition-colors duration-200 ease-in-out hover:bg-secondary/50
           border-2 border-dashed border-secondary

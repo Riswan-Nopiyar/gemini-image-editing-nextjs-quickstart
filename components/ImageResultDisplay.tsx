@@ -57,7 +57,7 @@ export function ImageResultDisplay({
         </div>
       </div>
 
-      <div className="rounded-lg overflow-hidden bg-muted p-2 dark:bg-gray-900">
+      <div className="rounded-lg overflow-hidden bg-muted p-2 dark:bg-secondary">
         <Image
          width={800}
          height={600}
@@ -68,7 +68,7 @@ export function ImageResultDisplay({
       </div>
 
       {description && (
-        <div className="p-4 rounded-lg bg-muted dark:bg-gray-900">
+        <div className="p-4 rounded-lg bg-muted dark:bg-secondary">
           <h3 className="text-sm font-medium mb-2">Description</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
